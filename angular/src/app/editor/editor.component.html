@@ -1,0 +1,26 @@
+
+
+
+
+<div id="editor-modal" #container [style.display]="editService.active">
+
+    <div id="editor-container">
+        <img id="x-editor" #X src="../../assets/icons/fi-close.svg" (click)="close()">
+
+        <form name="editor-form">
+            <label for="id-input">ID:</label>
+            <input type="text" name="id" #id value="{{ editService.Stuff.id }}" >
+
+            <label for="name-input">Name:</label>
+            <input type="text" name="name" #name value="{{ editService.Stuff.name }}">
+
+            <label for="state-input">State:</label>
+            <input type="text" name="state" #state value="{{ editService.Stuff.state }}">
+
+            <label for="quantity-input">Quantity:</label>
+            <input type="text" name="quantity" #quantity value="{{ editService.Stuff.quantity }}">     
+        </form>
+        
+        <button id="btn-update" #update (click)="save()">Guardar</button>
+    </div>
+</div>

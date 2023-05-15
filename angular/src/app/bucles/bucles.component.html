@@ -1,0 +1,62 @@
+
+<h1 class="title">Stuffs</h1>
+<div class="div-stuff">
+  <div class="line-stuff">
+      <div class="camp-stuff w10 h20" >ID</div>
+      <div class="camp-stuff w35 h20" >Name</div>
+      <div class="camp-stuff w35 h20" >State</div>
+  </div>
+  <div class="line-stuff">
+      <div class="camp-stuff w10"><input  #ID   type="text"></div>
+      <div class="camp-stuff w35"><input  #Name type="text"></div>
+      <div class="camp-stuff w35">
+        <select #State>
+         <option hidden selected>Dropdown</option>
+          <option value="New">New</option>
+          <option value="Used">Used</option>
+          <option value="Broken">Broken</option>
+         </select>
+      </div>
+      <div class="camp-stuff w20"><button (click)="save()">Save</button></div>
+  </div>
+</div>
+
+<div class="div-stuff">
+  <div class="line-stuff">
+      <div class="camp-stuff w20">Search by name</div>
+  </div>
+  <div class="line-stuff">
+      <div class="camp-stuff w35"><input type="text" #box id="mybox"></div>
+      <img src="../../assets/icons/lupa.svg"   alt="lupa" (click)="find()">
+  </div>
+</div>
+
+<br>
+<br>
+
+<table>
+    <thead>
+      <tr>
+        <th style="width: 200px;">Nombre</th>
+        <th >Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of bd" [id]="'fila'+item.id" >
+        <td style="width: 50%;">{{ item.name }}</td>
+        <td style="width: 20%;">{{ item.quantity }}</td>
+        <td style="width: 5%;">
+          <img [src]="item.state === 'New' ? '../../assets/icons/new.svg' : item.state === 'Used' ? '../../assets/icons/used.svg' : '../../assets/icons/broken.svg'"
+          alt="estado del objeto"
+          (click)="state(item)">         
+        </td> 
+        <td style="width: 5%;"><img src="../../assets/icons/trash.svg" alt="eliminar"          (click)="delete(item)"></td> 
+        <td style="width: 5%;"><img src="../../assets/icons/curva.svg" alt="ver movimientos"   (click)="mto(item)"></td> 
+        <td style="width: 15%;"><a (click)="select(item)">select</a></td> 
+      </tr>
+    </tbody>
+  </table>
+  
+  
+
+
